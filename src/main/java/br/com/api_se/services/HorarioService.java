@@ -68,6 +68,7 @@ public class HorarioService {
 		horario.setRotinaDia(dia);
 		return horarioDiaRepository.save(horario);
 	}
+	
 	public HorarioDia addProblemaHorarioDia(long HorarioId, long problemaId){
 		
 		HorarioDia horario =  horarioDiaRepository.findById(HorarioId).orElseThrow(
