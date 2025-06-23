@@ -35,7 +35,7 @@ public class PerfilService {
 		Usuario usuario = usuarioRepository.findById(dto.usuarioId()).orElseThrow(
 				()-> new RuntimeException("Usuario não encontrado"));
 		
-		perfil.setUsuarioId(usuario);
+		perfil.setUsuario(usuario);
 		return perfilRepository.save(perfil);
 	}
 	public Perfil addProblema(long perfilId, Problema caracteristica) {

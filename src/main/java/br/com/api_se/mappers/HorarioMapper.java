@@ -20,7 +20,7 @@ public class HorarioMapper {
 		HorarioDia dia = new HorarioDia();
 		dia.setAtividade(createDTO.atividade());
 		dia.setHora(createDTO.hora());
-		dia.setAvaliacao(createDTO.avalicao());
+		dia.setAvaliacao(createDTO.avaliacao());
 		
 		return dia;
 	}

@@ -44,11 +44,11 @@ public class MetodoEstudoService {
 		return metodo;
 	}
 	
-	public int contarProblemas(List<Problema> problemasPerfil, List<Problema> problemasMetodo) {
+	public static int contarProblemas(List<Problema> problemasPerfil, List<Problema> problemasMetodo) {
 		int quantidade = 0;
 		for(Problema p : problemasPerfil) {
 			if(problemasMetodo.contains(p)) {
-				quantidade+=1;
+				quantidade+= RecomendacaoService.converterPeso(p.getTipo());
 			}
 		}
 		return quantidade;

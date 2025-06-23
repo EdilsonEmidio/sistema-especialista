@@ -1,6 +1,7 @@
 package br.com.api_se.entities;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,14 +24,14 @@ public class RotinaEsperada {
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
-	private Date dataInicial;
-	private Date dataFinal;
+	private LocalDate dataInicial;
+	private LocalDate dataFinal;
 	
 	
 	public RotinaEsperada() {
 	}
 
-	public RotinaEsperada(long id, String nome, Usuario usuario, Date dataInicial, Date dataFinal, String descricao) {
+	public RotinaEsperada(long id, String nome, Usuario usuario, LocalDate dataInicial, LocalDate dataFinal, String descricao) {
 		this.id = id;
 		this.nome = nome;
 		this.usuario = usuario;
@@ -68,19 +69,19 @@ public class RotinaEsperada {
 	public void setUsuarioId(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	public Date getDataInicial() {
+	public LocalDate getDataInicial() {
 		return dataInicial;
 	}
 
-	public void setDataInicial(Date dataInicial) {
+	public void setDataInicial(LocalDate dataInicial) {
 		this.dataInicial = dataInicial;
 	}
 
-	public Date getDataFinal() {
+	public LocalDate getDataFinal() {
 		return dataFinal;
 	}
 
-	public void setDataFinal(Date dataFinal) {
+	public void setDataFinal(LocalDate dataFinal) {
 		this.dataFinal = dataFinal;
 	}
 	

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.api_se.dtos.HorarioDiaCreateDTO;
 import br.com.api_se.dtos.HorarioEsperadoCreateDTO;
+import br.com.api_se.dtos.HorarioEsperadoUpdateDTO;
 import br.com.api_se.entities.HorarioDia;
 import br.com.api_se.entities.HorarioEsperado;
 import br.com.api_se.entities.Problema;
@@ -79,5 +80,23 @@ public class HorarioService {
 		
 		horario.addProblema(problema);
 		return horarioDiaRepository.save(horario);
+	}
+	public HorarioEsperado updateHorarioEsperado(HorarioEsperadoUpdateDTO dto){
+		
+		HorarioEsperado horario =  horarioEsperadoRepository.findById(dto.id()).orElseThrow(
+				()-> new RuntimeException("horario não encontrado"));
+		
+		
+		horario.setAtividade(dto.atividade());
+		horario.setHora(dto.hora());
+		return horarioEsperadoRepository.save(horario);
+	}
+	public void deleteHorarioEsperado(long id){
+		
+		HorarioEsperado horario =  horarioEsperadoRepository.findById(id).orElseThrow(
+				()-> new RuntimeException("horario não encontrado"));
+		
+		
+		horarioEsperadoRepository.delete(horario);
 	}
 }

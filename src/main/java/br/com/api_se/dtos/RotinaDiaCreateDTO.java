@@ -1,12 +1,13 @@
 package br.com.api_se.dtos;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public record RotinaDiaCreateDTO(
 		String nome,
-		Date dataDia,
-		int avalicao,
-		long usuarioId
+		LocalDate dataDia,
+		int avaliacao,
+		long usuarioId,
+		long rotinaEsperadaId
 		) {
 
 }

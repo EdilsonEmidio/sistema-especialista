@@ -1,6 +1,5 @@
 package br.com.api_se.entities;
-
-import java.sql.Date;
+import java.time.LocalDate;
 
 import org.hibernate.annotations.CurrentTimestamp;
 
@@ -19,18 +18,18 @@ public class Usuario {
 	private long id;
 	private String name;
 	@CurrentTimestamp
-	private Date dataCriado;
+	private LocalDate dataCriado;
 	
-	public Date getDataCriado() {
+	public LocalDate getDataCriado() {
 		return dataCriado;
 	}
-	public void setDataCriado(Date dataCriado) {
+	public void setDataCriado(LocalDate dataCriado) {
 		this.dataCriado = dataCriado;
 	}
 	public Usuario() {
 		
 	}
-	public Usuario(long id, String name, Date dataCriado) {
+	public Usuario(long id, String name, LocalDate dataCriado) {
 		this.id = id;
 		this.name = name;
 		this.dataCriado = dataCriado;

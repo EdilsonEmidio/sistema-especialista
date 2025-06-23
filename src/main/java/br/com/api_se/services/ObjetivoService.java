@@ -34,8 +34,9 @@ public class ObjetivoService {
 		Objetivo objetivo = ObjetivoMapper.toEntity(dto);
 		Usuario usuario = usuarioRepository.findById(dto.usuarioId()).orElseThrow(
 				()-> new RuntimeException("Usuario não encontrado"));
-		
+		objetivo.setProgresso(0);
 		objetivo.setUsuarioId(usuario);
+		objetivo.setConcluido(false);
 		return objetivoRepository.save(objetivo);
 	}
 	public Objetivo updateObjetivo(ObjetivoUpdateDTO dto){
@@ -43,8 +44,16 @@ public class ObjetivoService {
 				()-> new RuntimeException("objetivo não encontrado"));
 		
 		objetivo.setProgresso(dto.progresso());
-		
+		if(objetivo.getMeta() < objetivo.getProgresso()) {
+			objetivo.setConcluido(true);
+		}
 		return objetivoRepository.save(objetivo);
 	}
 	
+	public Objetivo verificarObjetivo(long id){
+		Objetivo objetivo = objetivoRepository.findById(id).orElseThrow(
+				()-> new RuntimeException("objetivo não encontrado"));
+
+		return objetivo;
+	}
 }

@@ -43,10 +43,10 @@ public class Perfil {
 		this.id = id;
 	}
 
-	public Usuario getUsuarioId() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuarioId(Usuario usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 	public List<Problema> getProblemas() {

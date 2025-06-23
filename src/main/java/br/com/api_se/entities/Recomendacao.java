@@ -1,6 +1,7 @@
 package br.com.api_se.entities;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 
 import org.hibernate.annotations.CurrentTimestamp;
 
@@ -29,16 +30,16 @@ public class Recomendacao {
 	@OneToOne
 	@JoinColumn(name = "metodo_estudo_id")
 	private MetodoEstudo metodoEstudo;
-	private int fitness; //menos é melhor pq é menos erros
+	private int fitness; //mais é melhor
 	private int totalDias;
-	@CurrentTimestamp
-	private Date dataCriada;
+	//@CurrentTimestamp
+	private LocalDate dataCriada;
 	
 	public Recomendacao() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Recomendacao(long id, Perfil perfil, int fitness,MetodoEstudo metodoEstudo, int totalDias, Date dataCriada) {
+	public Recomendacao(long id, Perfil perfil, int fitness,MetodoEstudo metodoEstudo, int totalDias, LocalDate dataCriada) {
 		this.id = id;
 		this.perfil = perfil;
 		this.fitness = fitness;
@@ -91,11 +92,11 @@ public class Recomendacao {
 		this.rotinaEsperada = rotinaEsperada;
 	}
 
-	public Date getDataCriada() {
+	public LocalDate getDataCriada() {
 		return dataCriada;
 	}
 
-	public void setDataCriada(Date dataCriada) {
+	public void setDataCriada(LocalDate dataCriada) {
 		this.dataCriada = dataCriada;
 	}
 	

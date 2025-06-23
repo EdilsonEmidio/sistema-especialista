@@ -22,7 +22,9 @@ public class HorarioDia {
 	private long id;
 	private String hora;
 	private String atividade;
-	private int avaliacao; // 1 a 5
+	private int avaliacao;
+	private float fitness; //novo
+	private int problemasTotal;//novo
 	@ManyToOne
 	@JoinColumn(name = "rotina_dia")
 	private RotinaDia rotinaDia;
@@ -84,6 +86,22 @@ public class HorarioDia {
 	}
 	public void removeProblema(Problema problema) {
 		this.problemas.remove(problema);
+	}
+
+	public float getFitness() {
+		return fitness;
+	}
+
+	public void setFitness(float fitness) {
+		this.fitness = fitness;
+	}
+
+	public int getProblemasTotal() {
+		return problemasTotal;
+	}
+
+	public void setProblemasTotal(int problemasTotal) {
+		this.problemasTotal = problemasTotal;
 	}
 	
 }

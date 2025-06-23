@@ -22,7 +22,7 @@ public class RotinaMapper {
 		RotinaDia dia = new RotinaDia();
 		dia.setNome(createDTO.nome());
 		dia.setDataDia(createDTO.dataDia());
-		dia.setAvaliacao(createDTO.avalicao());
+		dia.setAvaliacao(createDTO.avaliacao());
 		
 		return dia;
 	}

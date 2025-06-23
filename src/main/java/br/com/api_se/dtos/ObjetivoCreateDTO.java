@@ -1,11 +1,12 @@
 package br.com.api_se.dtos;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public record ObjetivoCreateDTO(
 		String nome,
-		Date dataObjetivo,
-		int progresso,
+		String descricao,
+		LocalDate dataObjetivo,
+		int meta,
 		long usuarioId) {
 
 }

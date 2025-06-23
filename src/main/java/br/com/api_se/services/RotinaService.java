@@ -50,7 +50,11 @@ public class RotinaService {
 		Usuario usuario = usuarioRepository.findById(dto.usuarioId()).orElseThrow(
 				()-> new RuntimeException("Usuario não encontrado"));
 		
+		RotinaEsperada esperada = rotinaEsperadaRepository.findById(dto.rotinaEsperadaId()).orElseThrow(
+				()-> new RuntimeException("Rotina não encontrada"));
+		
 		rotinaDia.setUsuario(usuario);
+		rotinaDia.setRotinaEsperada(esperada);
 		return rotinaDiaRepository.save(rotinaDia);
 	}
 }

@@ -1,6 +1,7 @@
 package br.com.api_se.entities;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,8 +19,27 @@ public class RotinaDia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String nome;
-	private Date dataDia;
+	private LocalDate dataDia;
 	private int avaliacao; //0 a 10 como se fosse uma prova
+	private int fitness = 0; //novo
+	private int problemas; //novo
+	
+	public int getFitness() {
+		return fitness;
+	}
+
+	public void setFitness(int fitness) {
+		this.fitness = fitness;
+	}
+
+	public int getProblemas() {
+		return problemas;
+	}
+
+	public void setProblemas(int problemas) {
+		this.problemas = problemas;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
@@ -30,7 +50,7 @@ public class RotinaDia {
 	public RotinaDia() {
 	}
 
-	public RotinaDia(long id, String nome, Date dataDia, Usuario usuario, int avaliacao, RotinaEsperada rotinaEsperada) {
+	public RotinaDia(long id, String nome, LocalDate dataDia, Usuario usuario, int avaliacao, RotinaEsperada rotinaEsperada) {
 		this.id = id;
 		this.nome = nome;
 		this.dataDia = dataDia;
@@ -55,11 +75,11 @@ public class RotinaDia {
 		this.nome = nome;
 	}
 
-	public Date getDataDia() {
+	public LocalDate getDataDia() {
 		return dataDia;
 	}
 
-	public void setDataDia(Date dataDia) {
+	public void setDataDia(LocalDate dataDia) {
 		this.dataDia = dataDia;
 	}
 

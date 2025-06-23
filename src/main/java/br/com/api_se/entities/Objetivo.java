@@ -1,6 +1,6 @@
 package br.com.api_se.entities;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,8 +18,12 @@ public class Objetivo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String nome;
-	private Date dataObjetivo;
+	private String descricao;
+	
+	private LocalDate dataObjetivo;
+	private int meta;
 	private int progresso;
+	private boolean concluido;
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
@@ -27,7 +31,7 @@ public class Objetivo {
 	public Objetivo() {
 		
 	}
-	public Objetivo(long id, String nome, Date dataObjetivo, int progresso, Usuario usuario) {
+	public Objetivo(long id, String nome, LocalDate dataObjetivo, int progresso, Usuario usuario) {
 		this.id = id;
 		this.nome = nome;
 		this.dataObjetivo = dataObjetivo;
@@ -47,10 +51,10 @@ public class Objetivo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDataObjetivo() {
+	public LocalDate getDataObjetivo() {
 		return dataObjetivo;
 	}
-	public void setDataObjetivo(Date dataObjetivo) {
+	public void setDataObjetivo(LocalDate dataObjetivo) {
 		this.dataObjetivo = dataObjetivo;
 	}
 	public int getProgresso() {
@@ -64,5 +68,23 @@ public class Objetivo {
 	}
 	public void setUsuarioId(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public int getMeta() {
+		return meta;
+	}
+	public void setMeta(int meta) {
+		this.meta = meta;
+	}
+	public boolean isConcluido() {
+		return concluido;
+	}
+	public void setConcluido(boolean concluido) {
+		this.concluido = concluido;
 	}
 }
